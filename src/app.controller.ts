@@ -13,20 +13,6 @@ export class AppController {
     @Inject() private readonly service: AppService
     @Inject() private readonly transformer: AppTransformer
 
-    // @MessagePattern({cmd: 'login-google'})
-    // public async loginGoogle(@Body() body: AuthLoginGoogleDto): Promise<any> {
-    //     const user = await this.service.findByGoogleId(body.googleId)
-    //     if (!user) {
-    //         throw new RpcException({
-    //             status: 500,
-    //             code: 'users.not_exists',
-    //             message: 'User not exists',
-    //         })
-    //     }
-
-    //     return await this.service.loginGoogle(user)
-    // }
-
     @MessagePattern({cmd: 'get-cities'})
     public async findAllCities(): Promise<any> {
         const cities = await this.service.findAllCities()

@@ -1,12 +1,12 @@
 import {Module} from '@nestjs/common'
 import {TypeOrmModule} from '@nestjs/typeorm'
+import {City, District, Neighbourhood} from 'tatildekirala-entities'
 
 import {AppController} from './app.controller'
 import {AppService} from './app.service'
 import {AppTransformer} from './app.transformer'
 import {ConfigModule} from './config/config.module'
 import {ConfigService} from './config/config.service'
-import {City} from './entities/city.entity'
 
 @Module({
     imports: [
@@ -23,14 +23,14 @@ import {City} from './entities/city.entity'
                 keepConnectionAlive: true,
                 autoLoadEntities: true,
                 autoloadModel: true,
-                synchronize: true,
+                synchronize: false,
                 entities: [__dirname + '/entities/*.js', __dirname + '/entities/*.ts'],
                 subscribers: [__dirname + '/subscribers/*.js', __dirname + '/subscribers/*.ts'],
                 logging: 'all',
             }),
             inject: [ConfigService],
         }),
-        TypeOrmModule.forFeature([City]),
+        TypeOrmModule.forFeature([City, District, Neighbourhood]),
     ],
     controllers: [AppController],
     providers: [AppService, AppTransformer],

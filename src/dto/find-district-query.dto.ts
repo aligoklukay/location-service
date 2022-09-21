@@ -1,7 +1,7 @@
-import {IsNotEmpty, IsString} from 'class-validator'
+import {IsNotEmpty, IsNumber} from 'class-validator'
 
 export class FindDistrictsQuery {
     @IsNotEmpty()
-    @IsString()
-    id: string
+    @IsNumber()
+    id: number
 }

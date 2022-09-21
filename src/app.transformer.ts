@@ -1,8 +1,5 @@
 import {Injectable} from '@nestjs/common'
-
-import {City} from './entities/city.entity'
-import {District} from './entities/district.entity'
-import {Neighbourhood} from './entities/neighbourhood.entity'
+import {City, District, Neighbourhood} from 'tatildekirala-entities'
 
 @Injectable()
 export class AppTransformer {
